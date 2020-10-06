@@ -25,6 +25,8 @@ module.exports = function transform(arr) {
               break;
             } else {
               j--;
+              newArr.splice(j, 1);
+              
               i++;
             break;
             }
@@ -45,11 +47,14 @@ module.exports = function transform(arr) {
             newArr[j] = arr[i - 1];
             i++;
             j++;
-            } else {
+            } else if (i <= 0) {
+              i++;
+              break;
+            }
+            else {
               newArr[j] = arr[i - 1];
-            newArr[j+1] = arr[i - 1];
             i++;
-            j+=2;
+            j++;
             }            
             break;
           default:
