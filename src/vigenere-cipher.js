@@ -64,10 +64,10 @@ class VigenereCipheringMachine {
         }
       }
       
-      if (!this.name) {
-        result = arrResult.reverse().join('');
-        return result.toUpperCase();  
-          }
+      // if (!this.name) {
+      //   result = arrResult.reverse().join('');
+      //   return result.toUpperCase();  
+      //     }
           
         result = arrResult.join('');
         return result.toUpperCase();
@@ -101,10 +101,10 @@ class VigenereCipheringMachine {
         }
       }
 
-      if (!this.name) {
-      result = arrResult.reverse().join('');
-      return result.toUpperCase();  
-        }
+      // if (!this.name) {
+      // result = arrResult.reverse().join('');
+      // return result.toUpperCase();  
+      //   }
 
       result = arrResult.join('');
       return result.toUpperCase();
