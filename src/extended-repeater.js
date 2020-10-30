@@ -2,58 +2,22 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, options) {
   let result = '';
-  let separator = '+';
-  let additionSeparator = '|';
-  let tempArr = [];
+  let repeatTimes = options['repeatTimes'] !== undefined ? options['repeatTimes'] : 1;
+  let separator = options['separator'] !== undefined ? options['separator'] : "+";
+  let addition = options['addition'] !== undefined ? options['addition'] : "";
+  let additionSeparator = options['additionSeparator'] !== undefined ? options['additionSeparator'] : "|";
+  let additionRepeatTimes = options['additionRepeatTimes'] !== undefined ? options['additionRepeatTimes'] : 1;
 
-  if ('separator' in options) {
-    separator = options['separator'];
-  }
-
-  if ('addition' in options) {
-    let additionStr = '';
-    let tempArrAdd = [];
-    
-    if ('additionSeparator' in options) {
-      additionSeparator = options['additionSeparator'];
-    }
-
-    if ('additionRepeatTimes' in options) {
-      for (let j = 1; j <= options['additionRepeatTimes']; j++) {
-        if ( options['addition'] == null ) {
-          options['addition'] = 'null';
-
-        } 
-        tempArrAdd.push(options['addition']);
-        
-      }
-    }
-
-    additionStr = tempArrAdd.join(additionSeparator);
-    str += additionStr;
-
-  }
-
-  if ('repeatTimes' in options) {
-    for (let i = 1; i <= options['repeatTimes']; i++) {
-
-      if (str == null) {
-        str = 'null'
-        } 
-      tempArr.push(str)
-    }
   
-  if (!(options['repeatTimes'])) {   
-    if ('addition' in options)   {
-    return str + options['addition'];
+  addition = addition + additionSeparator;
+  addition = addition.repeat(additionRepeatTimes);
+  addition = addition.substr(0, addition.length - additionSeparator.length);
+  
+  result = str + addition + separator;
+  result = result.repeat(repeatTimes);
+  result = result.substr(0, result.length - separator.length);
 
-    }
-    return str;
-  }
-
-  result = tempArr.join(separator);
   return result;
-  
-  }
-};
+
+}
   
