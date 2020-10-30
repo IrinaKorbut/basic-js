@@ -63,8 +63,14 @@ class VigenereCipheringMachine {
         j++;
         }
       }
-      result = arrResult.join('');
-      return result.toUpperCase();
+      
+      if (!this.name) {
+        result = arrResult.reverse().join('');
+        return result.toUpperCase();  
+          }
+          
+        result = arrResult.join('');
+        return result.toUpperCase();
     }
     
     
@@ -94,6 +100,12 @@ class VigenereCipheringMachine {
         j++;
         }
       }
+
+      if (!this.name) {
+      result = arrResult.reverse().join('');
+      return result.toUpperCase();  
+        }
+
       result = arrResult.join('');
       return result.toUpperCase();
     }
