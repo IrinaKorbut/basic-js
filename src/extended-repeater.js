@@ -43,7 +43,11 @@ module.exports = function repeater(str, options) {
       tempArr.push(str)
     }
   
-  if (!(options['repeatTimes'])) {     
+  if (!(options['repeatTimes'])) {   
+    if ('addition' in options)   {
+    return str + options['addition'];
+
+    }
     return str;
   }
 
