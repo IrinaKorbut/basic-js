@@ -22,30 +22,34 @@ module.exports = function repeater(str, options) {
       for (let j = 1; j <= options['additionRepeatTimes']; j++) {
         if ( options['addition'] == null ) {
           options['addition'] = 'null';
+
+        } 
         tempArrAdd.push(options['addition']);
+        
       }
     }
 
     additionStr = tempArrAdd.join(additionSeparator);
     str += additionStr;
+
   }
 
   if ('repeatTimes' in options) {
     for (let i = 1; i <= options['repeatTimes']; i++) {
 
       if (str == null) {
-        str = 'null'        
-      }
-
+        str = 'null'
+        } 
       tempArr.push(str)
     }
-  }
-
+  
   if (!(options['repeatTimes'])) {     
     return str;
   }
 
   result = tempArr.join(separator);
   return result;
-}};
+  
+  }
+};
   
